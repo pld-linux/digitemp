@@ -12,7 +12,7 @@ Source1:	http://www.brianlane.com/linux/dthowto.txt
 Source2:	DS9097_Schematic.gif
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
-BuildRequires:  libusb-devel
+BuildRequires:	libusb-devel
 BuildRequires:	lockdev-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
