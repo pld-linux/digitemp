@@ -6,7 +6,9 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.brianlane.com/linux/%{name}-%{version}.tar.gz
+# Source0-md5:	0ddfc61be88fba07a67299930cbf7b1c
 Source1:	http://www.brianlane.com/linux/dthowto.txt
+# Source1-md5:	31f67f7dba103988d10478566599cb3e
 URL:		http://www.brianlane.com/digitemp.php
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
