@@ -1,0 +1,11 @@
+--- digitemp-3.3.2/Makefile.orig	2004-04-25 22:43:42.423912536 +0200
++++ digitemp-3.3.2/Makefile	2004-04-25 22:44:23.194714432 +0200
+@@ -17,7 +17,7 @@
+ 
+ 
+ CC	= gcc
+-CFLAGS	= -I./src -I./userial -O2 # -g -Wall
++CFLAGS	= -I./src -I./userial $(OPT) # -g -Wall
+ LIBS	= -lm
+ 
+ OBJS		=	src/digitemp.o src/device_name.o
