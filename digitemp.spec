@@ -1,15 +1,16 @@
 Summary:	Digital thermometer using DS1820 1-wire sensors
 Summary(pl):	Termometr cyfrowy u¿ywaj±cy czujników Dallasa DS1820
 Name:		digitemp
-Version:	3.2.0
+Version:	3.3.2
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
-Source0:	http://www.brianlane.com/linux/%{name}-%{version}.tar.gz
-# Source0-md5:	6fe9b2c071b733755e9ff8ad4df45ead
+Source0:	http://www.digitemp.com/software/linux/%{name}-%{version}.tar.gz
+# Source0-md5:	0b6cfb36d198767836de54d9fb11bbdb
 Source1:	http://www.brianlane.com/linux/dthowto.txt
 # Source1-md5:	31f67f7dba103988d10478566599cb3e
-URL:		http://www.brianlane.com/digitemp.php
+Patch0:		%{name}-opt.patch
+URL:		http://www.digitemp.com/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -20,8 +21,6 @@ control, process monitoring, weather station, indor/outdoor
 temperature logging, etc. It includes a couple of useful Perl, Python
 and RRD Tool scripts for crating graphs and dynamic signatures.
 
-This package has been compiled for the DS9097 passive 1-wire adapter.
-
 %description -l pl
 DigiTemp jest prostym interfejsem dla cyfrowych 1-przewodowych
 czujników temperatury: DS18S20, DS1822 i DS18B20 firmy Dallas
@@ -31,27 +30,30 @@ wewnêtrzne/zewnêtrzne monitorowanie temperatury. Pakiet zawiera kilka
 u¿ytecznych skryptów Perla, Pytona i RRD do tworzenia wykresów i
 dynamicznych wpisów.
 
-Ten pakiet zosta³ skompilowany dla pasywnego 1-przewodowego
-przetwornika DS9097.
-
 %prep
 %setup -q
+%patch0 -p1
 
 cp %{SOURCE1} .
 
 %build
-%{__make} ds9097
+%{__make} ds9097 OPT="%{rpmcflags}"
+%{__make} ds9097u OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir},%{_mandir}/man1}
 
-install digitemp $RPM_BUILD_ROOT%{_bindir}/digitemp
+install digitemp_DS9097* $RPM_BUILD_ROOT%{_bindir}
+install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README TODO FAQ perl python rrdb dthowto.txt
-%attr(755,root,root) %{_bindir}/digitemp
+%doc CREDITS FAQ README TODO dthowto.txt
+%attr(755,root,root) %{_bindir}/*
+%{_examplesdir}/*
+%{_mandir}/man1/*
