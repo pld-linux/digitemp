@@ -12,7 +12,7 @@ Source1:	http://www.brianlane.com/linux/dthowto.txt
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
 BuildRequires:  libusb-devel
-BuildRequires:	lockdev
+BuildRequires:	lockdev-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,11 +46,11 @@ export OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir}/%{name},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir}/%{name}-%{version},%{_mandir}/man1}
 
 install digitemp_DS* $RPM_BUILD_ROOT%{_bindir}
 install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,5 +59,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CREDITS FAQ README TODO dthowto.txt
 %attr(755,root,root) %{_bindir}/*
-%{_examplesdir}/*
+%{_examplesdir}/%{name}-%{version}
 %{_mandir}/man1/*
