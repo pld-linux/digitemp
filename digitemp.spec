@@ -28,7 +28,7 @@ and RRD Tool scripts for crating graphs and dynamic signatures.
 DigiTemp jest prostym interfejsem dla cyfrowych 1-przewodowych
 czujników temperatury: DS18S20, DS1822 i DS18B20 firmy Dallas
 Semiconductor. DigiTemp mo¿e mieæ wiele zastosowañ, takich jak
-kontrola ogrzewania, monitorowanie procesów, stacje metorologiczne,
+kontrola ogrzewania, monitorowanie procesów, stacje meteorologiczne,
 wewnêtrzne/zewnêtrzne monitorowanie temperatury. Pakiet zawiera kilka
 u¿ytecznych skryptów Perla, Pytona i RRD do tworzenia wykresów i
 dynamicznych wpisów.
