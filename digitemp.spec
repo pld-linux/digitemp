@@ -42,11 +42,11 @@ cp %{SOURCE1} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir}/%{name},%{_mandir}/man1}
 
 install digitemp_DS9097* $RPM_BUILD_ROOT%{_bindir}
 install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}
+cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
