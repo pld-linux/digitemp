@@ -1,5 +1,5 @@
 Summary:	Digital thermometer using DS1820 1-wire sensors
-Summary(pl):	Termometr cyfrowy u¿ywaj±cy sensory Dallasa DS1820
+Summary(pl):	Termometr cyfrowy u¿ywaj±cy czujników Dallasa DS1820
 Name:		digitemp
 Version:	3.1.0
 Release:	1
@@ -21,14 +21,16 @@ and RRD Tool scripts for crating graphs and dynamic signatures.
 This package has been compiled for the DS9097 passive 1-wire adapter.
 
 %description -l pl
-DigiTemp jest prostym interfejsem dla cyfrowych sensorów temperatury
-1-wire: DS18S20, DS1822 i DS18B20 firmy Dallas Semiconductor. DigiTemp
-mo¿e mieæ wiele zastosowañ takich jak kontrola ogrzewania,
-monitorowanie procesów, stacje metorologiczne, wewnêtrzne/zewnêtrzne
-monitorowanie temperatury. Pakiet zawiera kilka u¿ytecznych skryptów
-Perla, Pytona i RRD do tworzenia wykresów i dynamicznych wpisów.
+DigiTemp jest prostym interfejsem dla cyfrowych 1-przewodowych
+czujników temperatury: DS18S20, DS1822 i DS18B20 firmy Dallas
+Semiconductor. DigiTemp mo¿e mieæ wiele zastosowañ, takich jak
+kontrola ogrzewania, monitorowanie procesów, stacje metorologiczne,
+wewnêtrzne/zewnêtrzne monitorowanie temperatury. Pakiet zawiera kilka
+u¿ytecznych skryptów Perla, Pytona i RRD do tworzenia wykresów i
+dynamicznych wpisów.
 
-Ten pakiet zosta³ skompilowany dla pasywnego adaptera DS9097.
+Ten pakiet zosta³ skompilowany dla pasywnego 1-przewodowego
+przetwornika DS9097.
 
 %prep
 %setup -q
