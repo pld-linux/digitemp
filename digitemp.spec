@@ -11,6 +11,7 @@ Source1:	http://www.brianlane.com/linux/dthowto.txt
 # Source1-md5:	31f67f7dba103988d10478566599cb3e
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
+BuildRequires:	lockdev
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
