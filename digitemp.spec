@@ -2,7 +2,7 @@ Summary:	Digital thermometer using DS1820 1-wire sensors
 Summary(pl):	Termometr cyfrowy u¿ywaj±cy czujników Dallasa DS1820
 Name:		digitemp
 Version:	3.3.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.digitemp.com/software/linux/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ Source1:	http://www.brianlane.com/linux/dthowto.txt
 # Source1-md5:	31f67f7dba103988d10478566599cb3e
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
+BuildRequires:  libusb-devel
 BuildRequires:	lockdev
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,14 +39,16 @@ dynamicznych wpisów.
 cp %{SOURCE1} .
 
 %build
-%{__make} ds9097 OPT="%{rpmcflags}"
-%{__make} ds9097u OPT="%{rpmcflags}"
+export OPT="%{rpmcflags}"
+%{__make} ds9097
+%{__make} ds9097u
+%{__make} ds2490 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_examplesdir}/%{name},%{_mandir}/man1}
 
-install digitemp_DS9097* $RPM_BUILD_ROOT%{_bindir}
+install digitemp_DS* $RPM_BUILD_ROOT%{_bindir}
 install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 cp -rf perl python rrdb $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
