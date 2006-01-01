@@ -14,6 +14,7 @@ Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
 BuildRequires:	libusb-devel
 BuildRequires:	lockdev-devel
+BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
