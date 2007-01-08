@@ -1,14 +1,14 @@
 Summary:	Digital thermometer using DS1820 1-wire sensors
 Summary(pl):	Termometr cyfrowy u¿ywaj±cy czujników Dallasa DS1820
 Name:		digitemp
-Version:	3.4.0
+Version:	3.5.0
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.digitemp.com/software/linux/%{name}-%{version}.tar.gz
-# Source0-md5:	4b2346b47eed19f89de436821501c8fa
+# Source0-md5:	72bda9c8a66b017aa969c19dedb3225b
 Source1:	http://www.brianlane.com/linux/dthowto.txt
-# Source1-md5:	31f67f7dba103988d10478566599cb3e
+# Source1-md5:	313824e3f211c1983971913ce785f4f7
 Source2:	DS9097_Schematic.gif
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
