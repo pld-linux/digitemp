@@ -7,9 +7,7 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.digitemp.com/software/linux/%{name}-%{version}.tar.gz
 # Source0-md5:	72bda9c8a66b017aa969c19dedb3225b
-Source1:	http://www.brianlane.com/linux/dthowto.txt
-# Source1-md5:	313824e3f211c1983971913ce785f4f7
-Source2:	DS9097_Schematic.gif
+Source1:	DS9097_Schematic.gif
 Patch0:		%{name}-opt.patch
 URL:		http://www.digitemp.com/
 BuildRequires:	libusb-devel
@@ -38,13 +36,12 @@ dynamicznych wpisów.
 %setup -q
 %patch0 -p1
 
-cp %{SOURCE1} %{SOURCE2} .
+install %{SOURCE1} .
 
 %build
-export OPT="%{rpmcflags}"
-%{__make} ds9097
-%{__make} ds9097u
-%{__make} ds2490
+%{__make} ds9097 ds9097u ds2490 \
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -59,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CREDITS DS9097_S* FAQ README TODO dthowto.txt
+%doc CREDITS DS9097_S* FAQ README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_examplesdir}/%{name}-%{version}
 %{_mandir}/man1/*
