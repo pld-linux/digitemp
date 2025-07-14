@@ -33,7 +33,7 @@ dynamicznych wpisów.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} ds9097 ds9097u ds2490 \
